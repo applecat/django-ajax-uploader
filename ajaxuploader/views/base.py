@@ -48,7 +48,7 @@ class AjaxFileUploader(object):
                     # that each upload is a separate request, so FILES should
                     # only have one entry. Thus, we can just grab the first
                     # (and only) value in the dict.
-                    upload = request.FILES.values()[0]
+                    upload = list(request.FILES.values())[0]
                 else:
                     raise Http404("Bad Upload")
                 filename = upload.name
